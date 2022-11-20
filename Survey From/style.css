@@ -1,0 +1,63 @@
+label{
+    display: block;
+}
+body{
+    /* border: 10px solid red; */
+    background-image: linear-gradient( 115deg, rgba(58, 58, 158, 0.8), rgba(136, 136, 206, 0.7)), url(https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg);
+}
+
+.container{
+    /* border: 1px solid black; */
+    margin: 100px auto;
+    padding: 10px 10px;
+    max-width: 720px;
+    text-align: center;
+    color: white;
+}
+
+h1{
+    margin:auto auto;
+}
+
+form{
+    max-width: 600px;
+    background-color: rgba(27,27,50,0.8);
+    margin: 10px auto;
+    padding: 40px 40px 0 40px;
+    /* border: 5px solid green; */
+    text-align: left;
+}
+
+input,select{
+    width: 90%;
+    margin: 10px 0 20px 0;
+    height: 4vh;
+    font-size: 16px;
+    padding-left: 10px;
+}
+select{
+    height :5hv;
+}
+p,label{
+    font-size:20px;
+}
+
+input[type="radio"], input[type="checkbox"]{
+    display: inline;
+    max-width: 20px;
+    vertical-align: middle;
+    margin: 5px 0 5px 0;
+}
+
+.submit-button{
+    margin-left: 37%;
+    max-width:100px;
+    background-color: #37af65;
+    color: white;
+    height: 6vh;
+}
+.submit-button:hover{
+    background-color: white;
+    color: black;
+    transition: 300ms;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">FreeCodeCamp Survey Form</h1>
+        <p id="description">Thank you for taking the time to help us improve the platform</p>
+        <form id="survey-form">
+            <label for="name" id="name-label">Name</label>
+            <input type="text" class="Input-tabs" name="name" id="name" placeholder="Enter your name" required>
+
+            <label for="email" id="email-label">Email</label>
+            <input type="email" class="Input-tabs" name="email" id="email" placeholder="Enter your Email" required>
+
+            <label for="number" id="number-label">Age<span class="bracket text">(optional)</span></label>
+            <input type="number" class="Input-tabs" name="number" id="number" min="10" max="99" placeholder="Age">
+
+            <p>Which option best describes your current role?</p>
+            <select id="dropdown" class="Input-tabs">
+                <option>(select the option)</option>
+                <option>Student</option>
+                <option>Full Time Job</option>
+            </select>
+
+            <p>Would you recommend freeCodeCamp to a friend?</p>
+            <label for="radio-1"><input type="radio" name="radio" id="radio-1" value="r1" checked="checked"> Definitely</label>
+            <label for="radio-2"><input type="radio" name="radio" id="radio-2" value="r2"> Maybe</label>
+            <label for="radio-3"><input type="radio" name="radio" id="radio-3" value="r3"> Not sure</label>
+
+            <p>What would you like to see improved? <span class="bracket text">(Check all that apply)</span></p>
+            <label for="checkbox-1"><input type="checkbox" name="checkbox-1" id="checkbox-1" value="c1"> Checkbox1</label>
+            <label for="checkbox-2"><input type="checkbox" name="checkbox-2" id="checkbox-2" value="c2"> Checkbox1</label>
+            <label for="checkbox-3"><input type="checkbox" name="checkbox-3" id="checkbox-3" value="c3"> Checkbox1</label>
+            <label for="checkbox-4"><input type="checkbox" name="checkbox-4" id="checkbox-4" value="c4"> Checkbox1</label>
+
+            <p>Comments</p>
+            <textarea rows="4" cols="70"></textarea>
+            <input type="submit" class="submit-button" value="Submit" id="submit">
+        </form>
+    </div>
+    
+</body>
+</html>
