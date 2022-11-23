@@ -10,7 +10,7 @@ body {
 nav {
   display: block;
   position: fixed;
-  max-width: 250px;
+  max-width: 3 50px;
   height: 100%;
   border-right: 2px solid gray;
   background-color: rgb(243, 243, 243);
@@ -30,6 +30,17 @@ nav a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.771);
   border-top: 1px solid gray;
+}
+nav a:hover {
+  display: block;
+  font-size: 17px;
+  font-weight: 0;
+  padding: 11px 30px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.771);
+  border-top: 1px solid gray;
+  background-color: rgb(224, 222, 222);
+  transition: 300ms;
 }
 
 #main-doc {
@@ -68,4 +79,23 @@ code {
   padding: 10px 20px;
   background-color: rgb(240, 240, 240);
   border-radius: 5px;
+}
+
+@media (max-width: 500px) {
+  nav {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    clip-path: inset(50%) !important;
+    -webkit-clip-path: inset(50%) !important;
+    height: 1px !important;
+    width: 1px !important;
+    position: absolute !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    padding: 0 !important;
+    margin: -1px !important;
+  }
+  #main-doc {
+    margin: 0;
+  }
 }
