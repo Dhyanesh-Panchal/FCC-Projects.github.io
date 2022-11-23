@@ -3,9 +3,7 @@
 ## Projects
 
 - > Survey Form<br>https://dhyanesh-panchal.github.io/FCC-Projects.github.io/Survey%20From/index.html
-- > Tribute Page<br>https://dhyanesh-panchal.github.io/FCC-Projects.github.io/Tribute%20Page/index.html
-  > <br>
-  > <br>
+- > Tribute Page<br>https://dhyanesh-panchal.github.io/FCC-Projects.github.io/Tribute%20Page/index.html > <br> > <br>
 
 ## Practice Projects
 
