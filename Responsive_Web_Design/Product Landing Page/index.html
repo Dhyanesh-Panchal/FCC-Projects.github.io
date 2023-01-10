@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -20,9 +21,11 @@
         id="header-img"
       />
       <nav id="nav-bar">
-        <a href="#" id="nav-link">Link1</a>
-        <a href="#" id="nav-link">Link2</a>
-        <a href="#" id="nav-link">Link3</a>
+        <ul>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#video" class="nav-link">Video</a></li>
+          <li><a href="#products" class="nav-link">Products</a></li>
+        </ul>
       </nav>
     </header>
 
@@ -33,10 +36,10 @@
     >
       <p class="form-title">Handcrafted, home-made masterpieces</p>
       <input type="email" name="user-email" id="email" />
-      <input type="submit" value="GET STARTED" />
+      <input type="submit" value="GET STARTED" id="submit" />
     </form>
 
-    <div class="features">
+    <div class="features" id="features">
       <i class="feature-icon fa fa-4x fa-fire"></i>
       <div class="feature-title">feature title</div>
       <div class="feature-description">
@@ -57,7 +60,7 @@
       </div>
     </div>
 
-    <div class="video">
+    <div class="video" id="video">
       <iframe
         width="720"
         height="515"
@@ -66,7 +69,7 @@
       </iframe>
     </div>
 
-    <div class="products">
+    <div class="products" id="products">
       <div class="product">
         <p class="product-title">Ttitle</p>
         <p class="price">$600</p>
