@@ -15,11 +15,13 @@
   </head>
   <body>
     <header id="header">
-      <img
-        src="https://cdn.freecodecamp.org/testable-projects-fcc/images/product-landing-page-logo.png"
-        alt="logo"
-        id="header-img"
-      />
+      <div class="logo">
+        <img
+          src="https://cdn.freecodecamp.org/testable-projects-fcc/images/product-landing-page-logo.png"
+          alt="logo"
+          id="header-img"
+        />
+      </div>
       <nav id="nav-bar">
         <ul>
           <li><a href="#features" class="nav-link">Features</a></li>
@@ -28,71 +30,89 @@
         </ul>
       </nav>
     </header>
-
-    <form
-      action="https://www.freecodecamp.com/email-submit"
-      method="post"
-      id="form"
-    >
-      <p class="form-title">Handcrafted, home-made masterpieces</p>
-      <input type="email" name="user-email" id="email" />
-      <input type="submit" value="GET STARTED" id="submit" />
-    </form>
-
-    <div class="features" id="features">
-      <i class="feature-icon fa fa-4x fa-fire"></i>
-      <div class="feature-title">feature title</div>
-      <div class="feature-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, pariatur
-        nostrum? Animi dolorem magnam laudantium?
-      </div>
-      <i class="feature-icon fa fa-4x fa-truck"></i>
-      <div class="feature-title">feature title</div>
-      <div class="feature-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, pariatur
-        nostrum? Animi dolorem magnam laudantium?
-      </div>
-      <i class="feature-icon fa fa-4x fa-battery-full"></i>
-      <div class="feature-title">feature title</div>
-      <div class="feature-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, pariatur
-        nostrum? Animi dolorem magnam laudantium?
-      </div>
-    </div>
-
-    <div class="video" id="video">
-      <iframe
-        width="720"
-        height="515"
-        src="https://youtube.com/embed/y8Yv4pnO7qc"
+    <div class="wraper">
+      <form
+        action="https://www.freecodecamp.com/email-submit"
+        method="post"
+        id="form"
       >
-      </iframe>
-    </div>
+        <p class="form-title">Handcrafted, home-made masterpieces</p>
+        <input
+          type="email"
+          name="user-email"
+          id="email"
+          placeholder="Enter your email"
+        />
+        <input type="submit" value="GET STARTED" id="submit" />
+      </form>
 
-    <div class="products" id="products">
-      <div class="product">
-        <p class="product-title">Ttitle</p>
-        <p class="price">$600</p>
-        <p class="description">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis
-          adipisci veritatis aspernatur sapiente itaque tenetur
-        </p>
+      <div class="features" id="features">
+        <div class="feature">
+          <i class="feature-icon fa fa-3x fa-fire"></i>
+          <div class="feature-text">
+            <div class="feature-title">Premium Materials</div>
+            <div class="feature-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
+              pariatur nostrum? Animi dolorem magnam laudantium?
+            </div>
+          </div>
+        </div>
+        <div class="feature">
+          <i class="feature-icon fa fa-3x fa-truck"></i>
+          <div class="feature-text">
+            <div class="feature-title">Fast Shipping</div>
+            <div class="feature-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
+              pariatur nostrum? Animi dolorem magnam laudantium?
+            </div>
+          </div>
+        </div>
+        <div class="feature">
+          <i class="feature-icon fa fa-3x fa-battery-full"></i>
+          <div class="feature-text">
+            <div class="feature-title">Quality Assurance</div>
+            <div class="feature-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
+              pariatur nostrum? Animi dolorem magnam laudantium?
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="product">
-        <p class="product-title">title</p>
-        <p class="price">$600</p>
-        <p class="description">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis
-          adipisci veritatis aspernatur sapiente itaque tenetur
-        </p>
+
+      <div class="video" id="video">
+        <iframe
+          width="720"
+          height="515"
+          src="https://youtube.com/embed/y8Yv4pnO7qc"
+        >
+        </iframe>
       </div>
-      <div class="product">
-        <p class="product-title">title</p>
-        <p class="price">$600</p>
-        <p class="description">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis
-          adipisci veritatis aspernatur sapiente itaque tenetur
-        </p>
+
+      <div class="products" id="products">
+        <div class="product">
+          <p class="product-title">Ttitle</p>
+          <p class="price">$600</p>
+          <p class="description">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis
+            adipisci veritatis aspernatur sapiente itaque tenetur
+          </p>
+        </div>
+        <div class="product">
+          <p class="product-title">title</p>
+          <p class="price">$600</p>
+          <p class="description">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis
+            adipisci veritatis aspernatur sapiente itaque tenetur
+          </p>
+        </div>
+        <div class="product">
+          <p class="product-title">title</p>
+          <p class="price">$600</p>
+          <p class="description">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis
+            adipisci veritatis aspernatur sapiente itaque tenetur
+          </p>
+        </div>
       </div>
     </div>
   </body>
