@@ -94,7 +94,7 @@ form input {
 }
 
 .features {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 10px;
 }
 .feature {
@@ -111,4 +111,50 @@ form input {
   text-align: left;
   font-size: 1.5rem;
   font-weight: 545;
+}
+
+.products {
+  display: flex;
+  margin-top: 8vh;
+  justify-content: center;
+  gap: 1.5vw;
+}
+
+.product {
+  border: 1px solid black;
+  min-width: 20vw;
+  min-height: 40vh;
+}
+
+.product-title {
+  /* min-width: 200px; */
+  height: 5vh;
+  background-color: #ddd;
+  /* vertical-align: bottom; */
+  padding-top: 0.8vh;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.price {
+  margin: 2vh auto;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.description {
+  margin: 1vh auto;
+}
+
+.product-select-button {
+  width: 8vw;
+  height: 4vh;
+  margin: 2vh auto;
+  font-size: 1rem;
+  background-color: #f1c40f;
+  border: none;
+}
+.product-select-button:hover {
+  background-color: #dfb613;
+  transition: 500ms;
 }
