@@ -17,22 +17,52 @@ let colors = [
   '#73A857'
 ]
 
+
+
+let getQuotes = async () => {
+  let responce = await fetch('https://type.fit/api/quotes');
+  let Quotes = await responce.json();
+  return Quotes;
+}
+
 class Container extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      quote: 'This is a quote given by me dfdsf fgfsgsdfg gsdfg dfgsdfgdsfgsdfg sd dsfdfdsfsdfewfsd.',
-      writer: 'Dhyanesh Panchal'
+      quote: '',
+      writer: ''
     }
     this.handleNewQuote = this.handleNewQuote.bind(this);
+
+  }
+
+  componentDidMount() {
+    getQuotes().then(res => {
+      let randomIndx = Math.floor(Math.random() * res.length);
+      // console.log(res[randomIndx]);
+      this.setState({
+        quote: res[randomIndx].text,
+        writer: res[randomIndx].author
+      })
+    });
   }
   handleNewQuote() {
-    console.log("New Quote requested");
-    // this.setState({
-    //   quote: "This my NEW Quote"
-    // })
+    // console.log("New Quote requested");
+    //Changing the color
     let bodyObject = document.getElementById('body');
-    bodyObject.style.setProperty('--current-color', colors[4]);
+    let colorindx = Math.floor(Math.random() * (colors.length - 2));
+    console.log(colorindx)
+    bodyObject.style.setProperty('--current-color', colors[colorindx]);
+
+    // Update Quote
+    getQuotes().then(res => {
+      let randomIndx = Math.floor(Math.random() * res.length);
+      // console.log(res[randomIndx]);
+      this.setState({
+        quote: res[randomIndx].text,
+        writer: res[randomIndx].author
+      })
+    });
   }
   render() {
     return (

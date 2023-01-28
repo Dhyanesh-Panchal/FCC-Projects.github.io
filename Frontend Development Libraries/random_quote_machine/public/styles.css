@@ -3,11 +3,14 @@
     
 }
 
+:root{
+    --current-color: #16a085;
+
+}
 
 body {
-    --current-color: #16a085;
     background-color: var(--current-color);
-    transition: 2s;
+    transition: 1000ms;
   }
 
   .quote-box {
@@ -23,6 +26,8 @@ body {
     margin: auto;
     color: var(--current-color);
     z-index: 1;
+    align-items:center ;
+    transition: 1000ms;
   }
 
   .quote {
@@ -57,6 +62,7 @@ body {
     border-radius: 3px;
     padding: 5px 10px;
     margin: 20px 10px;
+    transition: 1000ms;
   }
   .new-quote-button{
     background: var(--current-color);
@@ -65,6 +71,7 @@ body {
     padding: 5px 10px;
     margin: 20px 10px;
     border: none;
+    transition: 1000ms;
   }
 
   .button:hover{
