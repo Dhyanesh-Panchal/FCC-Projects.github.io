@@ -28,10 +28,11 @@ class Container extends Component {
   }
   handleNewQuote() {
     console.log("New Quote requested");
-    this.setState({
-      quote: "This my NEW Quote"
-    })
-    // $("body").css("background-color", colors[4]);
+    // this.setState({
+    //   quote: "This my NEW Quote"
+    // })
+    let bodyObject = document.getElementById('body');
+    bodyObject.style.setProperty('--current-color', colors[4]);
   }
   render() {
     return (
