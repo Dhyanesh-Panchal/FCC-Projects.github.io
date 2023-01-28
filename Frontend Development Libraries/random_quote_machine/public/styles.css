@@ -1,23 +1,27 @@
 *{
     box-sizing: border-box;
+    
 }
 
+
 body {
-    background-color: #16a085;
+    --current-color: #16a085;
+    background-color: var(--current-color);
+    transition: 2s;
   }
 
   .quote-box {
     position: absolute;
     top: 35vh;
     left: 30vw;
-    padding: 10px 20px;
+    padding: 30px 40px;
     border-radius: 5px;
     background-color: white;
     min-width: 40vw;
     max-width: 45vw;
     height: auto;
     margin: auto;
-    color: #16a085;
+    color: var(--current-color);
     z-index: 1;
   }
 
@@ -30,6 +34,10 @@ body {
 
   .writer-name {
     text-align: end;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    font-weight: 200;
+    /* opacity: -1; */
   }
 
   .writer-name::before {
@@ -40,20 +48,23 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 5vh;
+    margin-top: 4vh;
   }
 
   .twitter-button{
-    color: #16a085;
+    color: var(--current-color);
     border-radius: 3px;
     padding: 5px 10px;
     margin: 20px 10px;
   }
   .new-quote-button{
-    background: #16a085;
+    background: var(--current-color);
     color: white;
     border-radius: 3px;
     padding: 5px 10px;
     margin: 20px 10px;
+    border: none;
   }
 
   .button:hover{

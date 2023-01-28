@@ -27,13 +27,17 @@ class Container extends Component {
     this.handleNewQuote = this.handleNewQuote.bind(this);
   }
   handleNewQuote() {
-
+    console.log("New Quote requested");
+    this.setState({
+      quote: "This my NEW Quote"
+    })
+    // $("body").css("background-color", colors[4]);
   }
   render() {
     return (
       <div className='quote-box' id='quote-box'>
         <Quote quote={this.state.quote} writer={this.state.writer} />
-        <Buttons />
+        <Buttons handleNewQuote={this.handleNewQuote} state={this.state} />
       </div>
     )
   }
