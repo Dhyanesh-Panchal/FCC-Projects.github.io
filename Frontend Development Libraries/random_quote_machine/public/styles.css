@@ -1,0 +1,65 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #16a085;
+  }
+
+  .quote-box {
+    position: absolute;
+    top: 35vh;
+    left: 30vw;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: white;
+    min-width: 40vw;
+    max-width: 45vw;
+    height: auto;
+    margin: auto;
+    color: #16a085;
+    z-index: 1;
+  }
+
+  .quote {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .writer-name {
+    text-align: end;
+  }
+
+  .writer-name::before {
+    content: '- ';
+  }
+
+  .buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .twitter-button{
+    color: #16a085;
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin: 20px 10px;
+  }
+  .new-quote-button{
+    background: #16a085;
+    color: white;
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin: 20px 10px;
+  }
+
+  .button:hover{
+    opacity: 0.9;
+  }
+
+  a{
+    text-decoration: none;
+  }

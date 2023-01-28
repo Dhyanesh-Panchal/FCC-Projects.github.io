@@ -158,3 +158,22 @@ form input {
   background-color: #dfb613;
   transition: 500ms;
 }
+
+@media (max-width: 400px) {
+  html {
+    width: 100%;
+  }
+  body {
+    text-align: center;
+  }
+  header nav ul {
+    list-style: none;
+    display: flex;
+    padding-left: 90%;
+    width: 25vw;
+    justify-content: space-between;
+    gap: 5vw;
+    align-items: flex-end;
+    font-size: 1.2rem;
+  }
+}
