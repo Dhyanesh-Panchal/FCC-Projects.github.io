@@ -84,3 +84,15 @@ body {
   a{
     text-decoration: none;
   }
+
+  @media (max-width:500px){
+    .quote-box{
+      max-width: 90vw;
+    }
+    .quote{
+      font-size: 1rem;
+    }
+    .writer-name{
+      font-size: 0.7rem;
+    }
+  }
