@@ -10,20 +10,23 @@
 
 body {
     background-color: var(--current-color);
+    /* border: 2px solid black; */
     transition: 1000ms;
   }
-
+  
+  .App{
+    display: flex;
+    justify-content: center;
+  }
   .quote-box {
     position: absolute;
     top: 35vh;
-    left: 30vw;
     padding: 30px 40px;
     border-radius: 5px;
     background-color: white;
     min-width: 40vw;
     max-width: 45vw;
     height: auto;
-    margin: auto;
     color: var(--current-color);
     z-index: 1;
     align-items:center ;
