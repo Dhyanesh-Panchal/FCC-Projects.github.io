@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Buttons from './Buttons.js'
-import Quote from './Quote.js'
+import Buttons from './Buttons.jsx'
+import Quote from './Quote.jsx'
 
 let colors = [
   '#16a085',
