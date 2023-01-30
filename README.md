@@ -2,7 +2,7 @@
 
 ## Projects
 ### Frontend Development Libraries
-- > Random Quote Gnerator<br>https://fcc-projects-github-io.vercel.app/
+- > Random Quote Gnerator<br>https://fcc-quote-machine-by-dhyanesh-panchal.vercel.app/
 ### Responsive Web Design
 - > Survey Form<br>https://dhyanesh-panchal.github.io/FCC-Projects.github.io/Responsive_Web_Design/Survey%20From/index.html
 - > Tribute Page<br>https://dhyanesh-panchal.github.io/FCC-Projects.github.io/Responsive_Web_Design/Tribute%20Page/index.html
