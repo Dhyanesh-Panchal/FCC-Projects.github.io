@@ -3,10 +3,10 @@
 }
 
 body{
-    background: rgb(8, 24, 43);
+    background: #1c222b;
     color: aliceblue;
     text-align: center;
-    font-family: 'Roboto Mono';
+    font-family: 'Segoe UI','Roboto Mono';
 }
 
 .wraper{
@@ -17,20 +17,20 @@ body{
 
 
 .textarea{
-    background-color: rgb(9, 38, 74);
+    background-color: #161B22;
     color: aliceblue;
     border: none;
     min-width: 20vw;
     width: 45vw;
     height: 90vh;
-    padding: 10px;
+    padding: 20px;
 }
 
 .preview-box{
-    background-color: rgb(9, 38, 74);
+    background-color: #161B22;
     width: 45vw;
     height: 90vh;
-    padding: 10px;
+    padding: 20px;
     text-align: start;
     font-weight: 300;
     overflow: scroll;
@@ -38,9 +38,9 @@ body{
 }
 
 code{
-    padding: 2  px;
+    padding: 2px;
     margin: auto;
     overflow: scroll;
     border-radius: 2px;
-    background-color: rgba(0, 14, 48, 0.725);
+    background-color: #303a49c6;
 }
