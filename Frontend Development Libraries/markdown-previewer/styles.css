@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(8, 24, 43);
+    color: aliceblue;
+    text-align: center;
+    font-family: 'Roboto Mono';
+}
+
+.wraper{
+    display: flex;
+    /* border: 2px solid white; */
+    justify-content: space-around;
+}
+
+
+.textarea{
+    background-color: rgb(9, 38, 74);
+    color: aliceblue;
+    border: none;
+    min-width: 20vw;
+    width: 45vw;
+    height: 90vh;
+    padding: 10px;
+}
+
+.preview-box{
+    background-color: rgb(9, 38, 74);
+    width: 45vw;
+    height: 90vh;
+    padding: 10px;
+    text-align: start;
+}
