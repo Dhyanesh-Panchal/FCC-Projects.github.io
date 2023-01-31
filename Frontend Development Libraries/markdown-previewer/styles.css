@@ -33,4 +33,14 @@ body{
     padding: 10px;
     text-align: start;
     font-weight: 300;
+    overflow: scroll;
+
+}
+
+code{
+    padding: 2  px;
+    margin: auto;
+    overflow: scroll;
+    border-radius: 2px;
+    background-color: rgba(0, 14, 48, 0.725);
 }

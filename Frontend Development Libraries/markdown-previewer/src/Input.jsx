@@ -6,7 +6,7 @@ const Input = (props) => {
     return (
         <div className='Input-box'>
             <h2>Editor</h2>
-            <textarea className='textarea' value={props.text} onChange={props.handleChange} />
+            <textarea className='textarea' value={props.text} onChange={props.handleChange} id='editor' />
         </div>
     )
 }
