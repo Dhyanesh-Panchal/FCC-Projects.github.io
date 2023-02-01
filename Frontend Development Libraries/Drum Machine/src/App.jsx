@@ -20,7 +20,7 @@ class Drumbox extends Component {
     this.state = {
       power: 'On',
       displayText: '',
-      volume: 0
+      volume: 50
     }
     this.togglePower = this.togglePower.bind(this);
     this.updateVolume = this.updateVolume.bind(this);
@@ -29,18 +29,47 @@ class Drumbox extends Component {
 
 
   togglePower() {
-    if (this.state.power == 'On')
+    if (this.state.power == 'On') {
       this.setState({ power: 'Off' })
-    else
+      let buttonObjs = document.getElementsByClassName('music-button');
+      for (let i = 0; i < buttonObjs.length; i++) {
+        buttonObjs[i].disabled = 'true'
+      }
+    }
+    else {
       this.setState({ power: 'On' })
+      let buttonObjs = document.getElementsByClassName('music-button');
+      for (let i = 0; i < buttonObjs.length; i++) {
+        buttonObjs[i].disabled = false
+      }
+    }
   }
 
   updateVolume(event) {
-    this.setState({ volume: event.target.value });
+    this.setState({ volume: Number(event.target.value) });
+  }
+
+  // We need to add Event Listerner to window for listening keyboard
+  componentDidMount() {
+    document.addEventListener('keypress', (event) => {
+      if (buttonsNames[event.key.toUpperCase()]) {
+        // console.log("Yes yes sahi hay");
+        let beat = new Audio(`../Audio/${buttonsNames[event.key.toUpperCase()]}.mp3`);
+        beat.volume = this.state.volume / 100;
+        // console.log(this.state)
+        beat.play();
+        this.setState({
+          displayText: buttonsNames[event.key.toUpperCase()]
+        })
+      }
+    })
   }
 
   handleButton(event) {
-    console.log(event.target.value);
+    //  console.log(event.target.value);
+    let beat = new Audio(`../Audio/${buttonsNames[event.target.value]}.mp3`);
+    beat.volume = this.state.volume / 100;
+    beat.play();
     this.setState({
       displayText: buttonsNames[event.target.value]
     })
@@ -58,9 +87,9 @@ class Drumbox extends Component {
             <p className="display-text">{this.state.displayText}</p>
           </div>
           <div className="volume">
-            <p className="label-text">Volume:</p>
+            <p className="label-text">Volume: {this.state.volume}%</p>
             <br />
-            <input type="range" min="0" max="100" class="volume-slider" value={this.state.volume} onChange={this.updateVolume} />
+            <input type="range" min="0" max="100" className="volume-slider" value={this.state.volume} onChange={this.updateVolume} />
           </div>
         </div>
       </div>
