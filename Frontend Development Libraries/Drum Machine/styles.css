@@ -1,0 +1,74 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+
+.App{
+    display: flex;
+    justify-content: center;
+}
+
+.drum-box{
+    background-color: lightslategray;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    top: 30vh;
+    min-width: 40vw;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* .power-button{
+    display: inline;
+} */
+
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1pxs solid black;
+}
+
+.music-button{
+    border: none;
+    border-radius: 4px;
+    font-size: medium;
+    width: 4vw;
+    height: 4vw;
+    margin: 10px;
+}
+
+.music-button:hover{
+    background-color: rgb(224, 223, 223);
+}
+.music-button:active{
+    background-color: rgb(182, 180, 180);
+}
+
+.power{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.display{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.display-text{
+    text-align: center;
+    background-color: rgb(170, 181, 193);
+    padding: 10px;
+    font-size: 1.02rem;
+    min-width: 5vw;
+    min-height: 2.5vh;
+}
+
+.label-text{
+    display: inline;
+    font-size: 1.1rem;
+    margin-right: 1vw;
+}
