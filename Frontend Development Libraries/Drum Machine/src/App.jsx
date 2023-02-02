@@ -31,14 +31,14 @@ class Drumbox extends Component {
   togglePower() {
     if (this.state.power == 'On') {
       this.setState({ power: 'Off' })
-      let buttonObjs = document.getElementsByClassName('music-button');
+      let buttonObjs = document.getElementsByClassName('drum-pad');
       for (let i = 0; i < buttonObjs.length; i++) {
         buttonObjs[i].disabled = 'true'
       }
     }
     else {
       this.setState({ power: 'On' })
-      let buttonObjs = document.getElementsByClassName('music-button');
+      let buttonObjs = document.getElementsByClassName('drum-pad');
       for (let i = 0; i < buttonObjs.length; i++) {
         buttonObjs[i].disabled = false
       }
@@ -51,39 +51,43 @@ class Drumbox extends Component {
 
   // We need to add Event Listerner to window for listening keyboard
   componentDidMount() {
-    document.addEventListener('keypress', (event) => {
-      if (buttonsNames[event.key.toUpperCase()]) {
+    window.addEventListener('keypress', (event) => {
+      if (buttonsNames[event.key.toUpperCase()] && this.state.power === 'On') {
         // console.log("Yes yes sahi hay");
-        let beat = new Audio(`../Audio/${buttonsNames[event.key.toUpperCase()]}.mp3`);
-        beat.volume = this.state.volume / 100;
-        // console.log(this.state)
-        beat.play();
         this.setState({
           displayText: buttonsNames[event.key.toUpperCase()]
         })
+        console.log(this.state.displayText);
+        console.log(document.getElementById(event.key.toUpperCase()));
+        document.getElementById(event.key.toUpperCase()).volume = this.state.volume / 100;
+        document.getElementById(event.key.toUpperCase()).play();
       }
     })
   }
 
   handleButton(event) {
     //  console.log(event.target.value);
-    let beat = new Audio(`../Audio/${buttonsNames[event.target.value]}.mp3`);
-    beat.volume = this.state.volume / 100;
-    beat.play();
+
+
+    // let beat = new Audio(`../Audio/${buttonsNames[event.target.value]}.mp3`);
+    // beat.volume = this.state.volume / 100;
+    // beat.play();
+    document.getElementById(event.target.value).volume = this.state.volume / 100;
+    document.getElementById(event.target.value).play();
     this.setState({
       displayText: buttonsNames[event.target.value]
     })
   }
   render() {
     return (
-      <div className='drum-box'>
-        <Buttons handleButton={this.handleButton} />
+      <div className='drum-box' id='drum-machine' >
+        <Buttons handleButton={this.handleButton} volume={this.state.volume} />
         <div className="controls">
           <div className="power">
             <p className="label-text">Power:</p>
             <button className="power-button" onClick={this.togglePower}>{this.state.power}</button>
           </div>
-          <div className="display">
+          <div className="display" id='display' >
             <p className="display-text">{this.state.displayText}</p>
           </div>
           <div className="volume">

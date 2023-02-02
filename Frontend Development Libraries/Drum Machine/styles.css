@@ -33,7 +33,7 @@ body{
     border: 1pxs solid black;
 }
 
-.music-button{
+.drum-pad{
     border: none;
     border-radius: 4px;
     font-size: medium;
@@ -42,10 +42,10 @@ body{
     margin: 10px;
 }
 
-.music-button:hover{
+.drum-pad:hover{
     background-color: rgb(224, 223, 223);
 }
-.music-button:active{
+.drum-pad:active{
     background-color: rgb(182, 180, 180);
 }
 
