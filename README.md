@@ -5,6 +5,7 @@
 - > Random Quote Gnerator<br>https://random-quote-generator-by-dhyanesh-panchal.vercel.app/
 - > Markdown Previewer<br>https://markdown-previewer-by-dhyanesh-panchal.vercel.app/
 - > Drum Machine<br>https://drum-machine-by-dhyanesh-panchal.vercel.app/
+- > Calculator<br>https://calculator-by-dhyanesh-panchal.vercel.app/
 ### Responsive Web Design
 - > Survey Form<br>https://dhyanesh-panchal.github.io/FCC-Projects.github.io/Responsive_Web_Design/Survey%20From/index.html
 - > Tribute Page<br>https://dhyanesh-panchal.github.io/FCC-Projects.github.io/Responsive_Web_Design/Tribute%20Page/index.html
