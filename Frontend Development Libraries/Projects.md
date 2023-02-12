@@ -7,3 +7,6 @@
 
 
 > # Drum Machine : <br>[Click here](https://drum-machine-by-dhyanesh-panchal.vercel.app/)
+
+
+> # Calculator : <br>[Click here](https://calculator-by-dhyanesh-panchal.vercel.app/)
