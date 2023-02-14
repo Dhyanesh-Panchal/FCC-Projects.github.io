@@ -1,29 +1,3 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//     const URL = `https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json`;
-//     let gotData = fetch(URL).then(res => res.json()).then(data => data.data);
-
-//     
-
-//     //Scales , Axis and Plotting Data
-//     let xScale, yScale, xAxis, yAxis;
-//     gotData.then(res => {
-//         
-//         res = res.map(ele => {
-//             return [Number(ele[0].slice(0, 4)) + Number(ele[0].slice(5, 7)) / 31, ele[1]]
-//         })
-//         // console.log(res)
-
-//         let xMax = d3.max(res, d => d[0]);
-//         
-
-//         console.log(xMax, yMax)
-
-//         
-
-//         // console.log(xScale(2015), yScale(100))
-//     })
-// })
-
 const Plotdata = (data) => {
     const svgDim = {
         w: 1000,
@@ -67,16 +41,19 @@ const Plotdata = (data) => {
         .attr('class', 'bar')
         .attr('data-date', d => d[2])
         .attr('data-gdp', d => d[1])
-        .on('mouseover', d => {
-            console.log(d)
-            d3.select('.tooltip')
-                .text(d[0])
-                .style('top', d.y)
-                .style('left', d.x)
-
+        .on('mouseover', (event) => {
+            console.log(event.relatedTarget['data-date'])
+            let currentData = event.relatedTarget.__data__;
+            let tooltip = d3.select('.tooltip')
+            console.log()
+            tooltip
+                .style('top', `${event.y - 25}px`)
+                .style('left', `${event.x + 30}px`)
+                .attr('data-date', currentData[2])
+                .attr('id', 'tooltip')
+            tooltip.select('.date').text(`${currentData[2]}`)
+            tooltip.select('.GDP').text(`$ ${currentData[1]} billion`)
         }) //this is an event added when we hover it
-
-
     // console.log('recieved data is : ', data);
 
 }
