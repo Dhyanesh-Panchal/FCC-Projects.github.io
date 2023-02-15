@@ -42,17 +42,21 @@ const Plotdata = (data) => {
         .attr('data-date', d => d[2])
         .attr('data-gdp', d => d[1])
         .on('mouseover', (event) => {
-            console.log(event.relatedTarget['data-date'])
-            let currentData = event.relatedTarget.__data__;
+            // console.log(event.relatedTarget['data-date'])
+            let currentData = event.target.dataset;
             let tooltip = d3.select('.tooltip')
-            console.log()
+            // console.log(event)
             tooltip
                 .style('top', `${event.y - 25}px`)
                 .style('left', `${event.x + 30}px`)
-                .attr('data-date', currentData[2])
-                .attr('id', 'tooltip')
-            tooltip.select('.date').text(`${currentData[2]}`)
-            tooltip.select('.GDP').text(`$ ${currentData[1]} billion`)
+                .style('opacity', 1)
+                .attr('data-date', currentData.date)
+            tooltip.select('.date').text(`${currentData.date}`)
+            tooltip.select('.GDP').text(`$ ${currentData.gdp} billion`)
+        }) //this is an event added when we hover it
+        .on('mouseout', (event) => {
+            let tooltip = d3.select('.tooltip')
+            tooltip.style('opacity', 0)
         }) //this is an event added when we hover it
     // console.log('recieved data is : ', data);
 
