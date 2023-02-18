@@ -20,6 +20,18 @@ svg{
     /* padding: 10px; */
 }
 
+.legend{
+    width: 300px;
+    border: 1px solid black;
+}
+
+.color-box{
+    display: inline;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(255, 127, 14);
+}
+
 /* .tooltip{
     position: absolute;
     z-index: 1;
