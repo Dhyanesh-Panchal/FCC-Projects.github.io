@@ -1,6 +1,9 @@
 # FCC-Projects.github.io
 
 ## Projects
+### Data Visualization
+- > USA GDP (Bar Chart)<br>https://dhyanesh-panchal.github.io/FCC-Projects.github.io/Data_Visualization/Bar_Chart/index.html
+- > Doping in Professional Bicycle Racing (Scatter-Plot)<br>https://dhyanesh-panchal.github.io/FCC-Projects.github.io/Data_Visualization/Scatter_Plot/index.html
 ### Frontend Development Libraries
 - > Random Quote Gnerator<br>https://random-quote-generator-by-dhyanesh-panchal.vercel.app/
 - > Markdown Previewer<br>https://markdown-previewer-by-dhyanesh-panchal.vercel.app/
