@@ -45,6 +45,24 @@ const Plotdata = (data) => {
         .attr('data-xvalue', d => d.Year)
         .attr('data-yvalue', d => d.formatedTime)
         .attr('fill', d => { if (d.Doping) { return 'rgb(31, 119, 180)' } else { return 'rgb(255, 127, 14)' } })
+        .on('mouseover', d => {
+            let elementData = d.target.__data__
+            console.log(elementData)
+            let tooltip = d3.select('#tooltip')
+            tooltip
+                .style('top', `${d.y}px`)
+                .style('left', `${d.x + 30}px`)
+                .style('opacity', 1)
+                .attr('data-year', d.target.dataset.xvalue)
+            tooltip.select('.Name').text(`Name: ${elementData.Name}`)
+            tooltip.select('.Year-and-time').text(`Year: ${elementData.Year}\tTime: ${elementData.Time}`)
+            tooltip.select('.Doping').text(`${elementData.Doping}`)
+        })
+        .on('mouseout', d => {
+            let tooltip = d3.select('#tooltip')
+            tooltip
+                .style('opacity', 0)
+        })
 
     console.log('recieved data is : ', data);
 
