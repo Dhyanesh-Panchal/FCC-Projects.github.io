@@ -52,7 +52,7 @@ const Plotdata = (data) => {
         .range([svgDim.padding, svgDim.w - svgDim.padding]);
 
     const yScale = d3.scaleTime()
-        .domain([new Date(2000, 0), new Date(2000, 11)])
+        .domain([new Date(2000, 0, 0, 0, 0, 0, 0), new Date(2000, 12, 0, 0, 0, 0, 0)])
         .range([svgDim.padding, svgDim.h - svgDim.padding]);
 
     xAxis = d3.axisBottom(xScale).tickFormat(d3.format('d')).ticks([26]);// used to cinvert , seperated arguments into decimal
@@ -78,9 +78,9 @@ const Plotdata = (data) => {
         .attr('data-year', d => d.year)
         .attr('data-temp', d => d.variance + baseTemp)
         .attr('x', d => xScale(d.year))
-        .attr('y', d => yScale(new Date(2000, timeFormat(d.Date) - 1)))
+        .attr('y', d => yScale(new Date(2000, d.month - 1, 0, 0, 0, 0, 0)))
         .attr('width', 10)
-        .attr('height', 50)
+        .attr('height', (svgDim.h - (2 * svgDim.padding)) / 12)
 
 }
 
