@@ -20,11 +20,10 @@ svg{
     /* padding: 10px; */
 }
 
-rect{
-    fill: rgb(0, 140, 255);
-}
 rect:hover{
-    fill: rgb(155, 209, 252);
+    /* border: 4px solid black; */
+    stroke: black;
+    stroke-width: 1;
 }
 
 .tooltip{

@@ -2,25 +2,25 @@ const getColor = (val) => {
     if (val < -5.5) {
         return 'rgb(69, 117, 180)'
     }
-    else if (val < -4) {
+    else if (val < -4.5) {
         return 'rgb(116, 173, 209)'
     }
-    else if (val < -2.5) {
+    else if (val < -2.8) {
         return 'rgb(171, 217, 233)'
     }
-    else if (val < -1) {
+    else if (val < -1.5) {
         return 'rgb(224, 243, 248)'
     }
-    else if (val < 1) {
+    else if (val < -0.2) {
         return 'rgb(255, 255, 191)'
     }
-    else if (val < 2) {
+    else if (val < 1) {
         return 'rgb(254, 224, 144)'
     }
-    else if (val < 3) {
+    else if (val < 2) {
         return 'rgb(253, 174, 97)'
     }
-    else if (val < 4.5) {
+    else if (val < 3.5) {
         return 'rgb(244, 109, 67)'
     }
     else {
@@ -28,8 +28,11 @@ const getColor = (val) => {
     }
 }
 
+let tempRange = [-5.5, -4.5, -2.8, -1.5, -0.2, 1, 2, 3.5];
+
 const Plotdata = (data) => {
     const baseTemp = data.baseTemperature, monthlyData = data.monthlyVariance;
+
     console.log(monthlyData)
     const svgDim = {
         w: 1400,
@@ -44,7 +47,12 @@ const Plotdata = (data) => {
 
     let xMax = d3.max(monthlyData, d => d.year);
     let xMin = d3.min(monthlyData, d => d.year);
-    console.log(d3.max(monthlyData, d => d.variance))
+
+    tempRange = tempRange.map(ele => ele + baseTemp)
+    tempRange.shift(d3.min(monthlyData, d => d.variance) + baseTemp)
+    tempRange.push(d3.max(monthlyData, d => d.variance) + baseTemp)
+    console.log(tempRange)
+    // console.log(d3.max(monthlyData, d => d.variance))
     // console.log(yMax)
 
     const xScale = d3.scaleLinear()
@@ -79,9 +87,28 @@ const Plotdata = (data) => {
         .attr('data-temp', d => d.variance + baseTemp)
         .attr('x', d => xScale(d.year))
         .attr('y', d => yScale(new Date(2000, d.month - 1, 0, 0, 0, 0, 0)))
-        .attr('width', 10)
+        .attr('width', (svgDim.w - 2 * svgDim.padding) / ((xMax - xMin)))
         .attr('height', (svgDim.h - (2 * svgDim.padding)) / 12)
 
+    // Legend:-
+    let legendDim = {
+        w: 500,
+        h: 50,
+        padding: 10
+    }
+    let legend = d3.select('.legend')
+        .append('svg')
+        .style('width', legendDim.w)
+        .style('height', legendDim.h);
+
+
+    let legendScale = d3.scaleLinear()
+        .range(legendDim.padding, legendDim.w - legendDim.padding)
+
+    let legendAxis = d3.axisBottom(legendScale).ticks(tempRange)
+
+    legend.append('g')
+        .call(legendAxis)
 }
 
 const getData = async (URL) => {
