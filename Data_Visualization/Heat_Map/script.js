@@ -74,7 +74,7 @@ const Plotdata = (data) => {
         .attr('id', 'y-axis');
 
 
-    let timeFormat = d3.timeFormat('%m')
+    let timeFormat = d3.timeFormat('%Y-%b')
 
     svg.selectAll('rect')
         .data(monthlyData)
@@ -89,6 +89,24 @@ const Plotdata = (data) => {
         .attr('y', d => yScale(new Date(2000, d.month - 1, 0, 0, 0, 0, 0)))
         .attr('width', (svgDim.w - 2 * svgDim.padding) / ((xMax - xMin)))
         .attr('height', (svgDim.h - (2 * svgDim.padding)) / 12)
+        .on('mouseover', d => {
+            let elementData = d.target.__data__
+            console.log(elementData)
+            let tooltip = d3.select('#tooltip')
+            tooltip
+                .style('top', `${d.y}px`)
+                .style('left', `${d.x + 30}px`)
+                .style('opacity', 1)
+                .attr('data-year', d.target.dataset.xvalue)
+            tooltip.select('.date').text(`${timeFormat(elementData.Date)}`)
+            tooltip.select('.temp').text(`${elementData.variance + baseTemp}`)
+            tooltip.select('.var').text(`${elementData.variance}`)
+        })
+        .on('mouseout', d => {
+            let tooltip = d3.select('#tooltip')
+            tooltip
+                .style('opacity', 0)
+        })
 
     // Legend:-
     let legendDim = {
@@ -103,11 +121,13 @@ const Plotdata = (data) => {
 
 
     let legendScale = d3.scaleLinear()
-        .range(legendDim.padding, legendDim.w - legendDim.padding)
+        .domain()
+        .range(0, legendDim.w - legendDim.padding)
 
-    let legendAxis = d3.axisBottom(legendScale).ticks(tempRange)
+    let legendAxis = d3.axisBottom(legendScale);
 
     legend.append('g')
+        .attr('transform', `translate(50,50)`)
         .call(legendAxis)
 }
 
