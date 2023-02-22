@@ -28,8 +28,6 @@ const getColor = (val) => {
     }
 }
 
-let tempRange = [-5.5, -4.5, -2.8, -1.5, -0.2, 1, 2, 3.5];
-
 const Plotdata = (data) => {
     const baseTemp = data.baseTemperature, monthlyData = data.monthlyVariance;
 
@@ -47,11 +45,6 @@ const Plotdata = (data) => {
 
     let xMax = d3.max(monthlyData, d => d.year);
     let xMin = d3.min(monthlyData, d => d.year);
-
-    tempRange = tempRange.map(ele => ele + baseTemp)
-    tempRange.shift(d3.min(monthlyData, d => d.variance) + baseTemp)
-    tempRange.push(d3.max(monthlyData, d => d.variance) + baseTemp)
-    console.log(tempRange)
     // console.log(d3.max(monthlyData, d => d.variance))
     // console.log(yMax)
 
@@ -74,7 +67,7 @@ const Plotdata = (data) => {
         .attr('id', 'y-axis');
 
 
-    let timeFormat = d3.timeFormat('%Y-%b')
+    let timeFormat = d3.timeFormat('%Y - %b')
 
     svg.selectAll('rect')
         .data(monthlyData)
@@ -91,44 +84,22 @@ const Plotdata = (data) => {
         .attr('height', (svgDim.h - (2 * svgDim.padding)) / 12)
         .on('mouseover', d => {
             let elementData = d.target.__data__
-            console.log(elementData)
+            console.log(d.target.dataset)
             let tooltip = d3.select('#tooltip')
             tooltip
                 .style('top', `${d.y}px`)
                 .style('left', `${d.x + 30}px`)
                 .style('opacity', 1)
-                .attr('data-year', d.target.dataset.xvalue)
+                .attr('data-year', d.target.dataset.year)
             tooltip.select('.date').text(`${timeFormat(elementData.Date)}`)
-            tooltip.select('.temp').text(`${elementData.variance + baseTemp}`)
-            tooltip.select('.var').text(`${elementData.variance}`)
+            tooltip.select('.temp').text(`${elementData.variance + baseTemp} °C`)
+            tooltip.select('.var').text(`${elementData.variance} °C`)
         })
         .on('mouseout', d => {
             let tooltip = d3.select('#tooltip')
             tooltip
                 .style('opacity', 0)
         })
-
-    // Legend:-
-    let legendDim = {
-        w: 500,
-        h: 50,
-        padding: 10
-    }
-    let legend = d3.select('.legend')
-        .append('svg')
-        .style('width', legendDim.w)
-        .style('height', legendDim.h);
-
-
-    let legendScale = d3.scaleLinear()
-        .domain()
-        .range(0, legendDim.w - legendDim.padding)
-
-    let legendAxis = d3.axisBottom(legendScale);
-
-    legend.append('g')
-        .attr('transform', `translate(50,50)`)
-        .call(legendAxis)
 }
 
 const getData = async (URL) => {
