@@ -11,11 +11,40 @@
 const EducationURL = 'https://cdn.freecodecamp.org/testable-projects-fcc/data/choropleth_map/for_user_education.json';
 const CountyURL = 'https://cdn.freecodecamp.org/testable-projects-fcc/data/choropleth_map/counties.json';
 
+const getColor = (val) => {
+    if (val < 10) {
+        return 'rgb(229, 245, 224)'
+    }
+    else if (val < 17) {
+        return 'rgb(199, 233, 192)'
+    }
+    else if (val < 24) {
+        return 'rgb(161, 217, 155)'
+    }
+    else if (val < 32) {
+        return 'rgb(116, 196, 118)'
+    }
+    else if (val < 40) {
+        return 'rgb(65, 171, 93)'
+    }
+    else if (val < 49) {
+        return 'rgb(35, 139, 69)'
+    }
+    else if (val < 58) {
+        return 'rgb(2, 153, 62)'
+    }
+    else if (val < 67) {
+        return 'rgb(0, 109, 44)'
+    }
+    else {
+        return 'rgb(0, 85, 34)'
+    }
+}
+
 
 
 const Plotdata = (Edata, Cdata) => {
 
-    // ==> Note: id in countyData and fips in educationData are mapped with each other. 
 
     // geoJSON is has objects with type="feature" and here we have array of multiples feature objects
     Cdata = Cdata.features; // extracting feature from object
@@ -28,11 +57,25 @@ const Plotdata = (Edata, Cdata) => {
     }
     const svg = d3.select('.graph').append('svg').style('width', svgDim.w).style('height', svgDim.h);
 
+    let minBatch = d3.min(Edata, d => d.bachelorsOrHigher)
+    let maxBatch = d3.max(Edata, d => d.bachelorsOrHigher)
+
+    console.log(maxBatch)
+
     svg.selectAll('path') // path is a svg element which is used to draw paths...:)
         .data(Cdata)
         .enter()
         .append('path')
-        .attr('d', d3.geoPath())
+        .attr('d', d3.geoPath()) // this function will take the Cdata.geometry in it for each and will return a svg parsable string.
+        .attr('class', 'county')
+        .attr('fill', d => {
+            // console.log((d.id - 1001) / 2)
+            // ==> Note: id in countyData and fips in educationData are mapped with each other. 
+            let correspondingEducation = Edata.find(ele => {
+                return ele.fips == d.id;
+            })
+            return getColor(correspondingEducation.bachelorsOrHigher)
+        })
 
 
 }
