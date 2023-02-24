@@ -18,11 +18,25 @@
 <body>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     <div class="wrapper">
-        <div class="legend" id="legend"></div>
         <h1 class="title" id="title">United States Educational Attainment</h1>
         <h2 id="description">Percentage of adults age 25 and older with a bachelor's degree or higher (2010-2014)</h2>
-
+        <div class="tooltip" id="tooltip">
+            <p class="area-name"></p>
+            <p class="state"></p>
+            <p class="edu"></p>
+        </div>
         <div class="graph" id="graph"></div>
+        <svg class="legend" id="legend" width="0" height="0">
+            <rect fill="rgb(69, 117, 180)" />
+            <rect fill="rgb(116, 173, 209)" />
+            <rect fill="rgb(171, 217, 233)" />
+            <rect fill="rgb(224, 243, 248)" />
+            <rect fill="rgb(255, 255, 191)" />
+            <rect fill="rgb(254, 224, 144)" />
+            <rect fill="rgb(253, 174, 97)" />
+            <rect fill="rgb(244, 109, 67)" />
+            <rect fill="rgb(215, 48, 39)" />
+        </svg>
     </div>
 
 </body>

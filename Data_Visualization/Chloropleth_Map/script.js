@@ -68,13 +68,46 @@ const Plotdata = (Edata, Cdata) => {
         .append('path')
         .attr('d', d3.geoPath()) // this function will take the Cdata.geometry in it for each and will return a svg parsable string.
         .attr('class', 'county')
+        .attr('data-fips', d => {
+            let correspondingEducationData = Edata.find(ele => {
+                return ele.fips == d.id;
+            })
+            return correspondingEducationData.fips
+        })
+        .attr('data-education', d => {
+            let correspondingEducationData = Edata.find(ele => {
+                return ele.fips == d.id;
+            })
+            return correspondingEducationData.bachelorsOrHigher
+        })
         .attr('fill', d => {
             // console.log((d.id - 1001) / 2)
             // ==> Note: id in countyData and fips in educationData are mapped with each other. 
-            let correspondingEducation = Edata.find(ele => {
+            let correspondingEducationData = Edata.find(ele => {
                 return ele.fips == d.id;
             })
-            return getColor(correspondingEducation.bachelorsOrHigher)
+            return getColor(correspondingEducationData.bachelorsOrHigher)
+        })
+        .on('mouseover', d => {
+            let elementCountyData = d.target.__data__
+            let eduData = Edata.find(ele => {
+                return ele.fips == elementCountyData.id;
+            })
+            // console.log()
+            let tooltip = d3.select('#tooltip')
+            tooltip
+                .style('top', `${d.screenY - 100}px`)
+                .style('left', `${d.screenX + 20}px`)
+                .style('opacity', 1)
+                .attr('data-education', eduData.bachelorsOrHigher)
+            tooltip.select('.area-name').text(`${eduData.area_name}, `)
+            tooltip.select('.state').text(`${eduData.state}, `)
+            tooltip.select('.edu').text(`${eduData.bachelorsOrHigher}`)
+        })
+        .on('mouseout', d => {
+            let tooltip = d3.select('#tooltip')
+            tooltip
+                .style('opacity', 0)
         })
 
 
