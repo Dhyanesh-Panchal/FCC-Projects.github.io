@@ -1,0 +1,50 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(65, 84, 94);
+    /* text-align: center; */
+}
+
+.wrapper{
+    background-color: white;
+    text-align: center;
+}
+
+svg{
+    border: 1px solid black;
+    margin: 20px;
+    /* padding: 10px; */
+}
+
+.legend{
+    width: 300px;
+    /* border: 1px solid black; */
+}
+
+.color-box{
+    position: relative;
+    display: inline;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(255, 127, 14);
+    /* margin: 10px; */
+}
+
+.tooltip{
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    background-color: rgba(242, 235, 235, 0.868);
+    border-radius: 10px;
+    transition: 100ms;
+}
+
+.tooltip p{
+    margin: 0;
+}
