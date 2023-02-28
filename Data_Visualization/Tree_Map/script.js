@@ -66,7 +66,7 @@ const Plotdata = (data) => {
         .data(hierarchy.leaves())
         .enter()
         .append('g')
-
+        .attr('transform', d => `translate(${d.x0},${d.y0})`)
 
     block.append('rect')
         .attr('class', 'tile')
@@ -74,17 +74,30 @@ const Plotdata = (data) => {
         .attr('data-name', d => d.data.name)
         .attr('data-category', d => d.data.category)
         .attr('data-value', d => d.data.value)
-    // svg.selectAll('rect')
-    //     .data(data)
-    //     .enter()
-    //     .append('rect')
-    //     .attr('x', 200)
-    //     .attr('y', 300)
-    //     .attr('width', 200)
-    //     .attr('height', 300)
-    //     .attr('fill', 'blue')
-    //     .attr('class', 'tile')
-
+        .attr('width', d => d.x1 - d.x0)
+        .attr('height', d => d.y1 - d.y0)
+        .on('mouseover', d => {
+            let elementData = d.target.__data__
+            console.log(elementData)
+            let tooltip = d3.select('#tooltip')
+            tooltip
+                .style('top', `${d.y}px`)
+                .style('left', `${d.x + 30}px`)
+                .style('opacity', 1)
+                .attr('data-value', d.target.dataset.value)
+            tooltip.select('.Name').text(`Name: ${elementData.data.name}`)
+            tooltip.select('.Category').text(`Category: ${elementData.data.category}`)
+            tooltip.select('.Value').text(`Value: ${elementData.value}`)
+        })
+        .on('mouseout', d => {
+            let tooltip = d3.select('#tooltip')
+            tooltip
+                .style('opacity', 0)
+        })
+    block.append('text')
+        .text(d => d.data.name)
+        .attr('x', 5)
+        .attr('y', 20)
     console.log('recieved data is : ', data);
 
 }
