@@ -1,5 +1,44 @@
 let getColor = (val) => {
 
+    console.log(val)
+    switch (val) {
+        case '2600':
+            return 'rgb(210, 210, 210)'
+        case 'Wii':
+            return 'rgb(76, 146, 195)'
+        case 'NES':
+            return 'rgb(173, 229, 161)'
+        case 'GB':
+            return 'rgb(255, 201, 147)'
+        case 'DS':
+            return 'rgb(190, 210, 237)'
+        case 'X360':
+            return 'rgb(255, 153, 62)'
+        case 'PS3':
+            return 'rgb(86, 179, 86)'
+        case 'PS2':
+            return 'rgb(222, 82, 83)'
+        case 'SNES':
+            return 'rgb(209, 192, 221)'
+        case 'GBA':
+            return 'rgb(233, 146, 206)'
+        case 'PS4':
+            return 'rgb(169, 133, 202)'
+        case '3DS':
+            return 'rgb(255, 173, 171)'
+        case 'N64':
+            return 'rgb(208, 176, 169)'
+        case 'PS':
+            return 'rgb(153, 153, 153)'
+        case 'XB':
+            return 'rgb(249, 197, 219)'
+        case 'PC':
+            return 'rgb(163, 120, 111)'
+        case 'PSP':
+            return 'rgb(201, 202, 78)'
+        case 'XOne':
+            return 'rgb(226, 226, 164)'
+    }
 }
 
 const Plotdata = (data) => {
@@ -31,9 +70,10 @@ const Plotdata = (data) => {
 
     block.append('rect')
         .attr('class', 'tile')
-        .attr('fill', d => {
-            console.log(d)
-        })
+        .attr('fill', d => getColor(d.data.category))
+        .attr('data-name', d => d.data.name)
+        .attr('data-category', d => d.data.category)
+        .attr('data-value', d => d.data.value)
     // svg.selectAll('rect')
     //     .data(data)
     //     .enter()
