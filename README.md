@@ -6,6 +6,7 @@
 - > Doping in Professional Bicycle Racing (Scatter-Plot)<br>https://dhyanesh-panchal.github.io/FCC-Projects.github.io/Data_Visualization/Scatter_Plot/index.html
 - > Heat Map<br>https://dhyanesh-panchal.github.io/FCC-Projects.github.io/Data_Visualization/Heat_Map/index.html
 - > Chloropleth_Map<br>https://dhyanesh-panchal.github.io/FCC-Projects.github.io/Data_Visualization/Chloropleth_Map/index.html
+- > Tree Map<br>https://dhyanesh-panchal.github.io/FCC-Projects.github.io/Data_Visualization/Tree_Map/index.html
 ### Frontend Development Libraries
 - > Random Quote Gnerator<br>https://random-quote-generator-by-dhyanesh-panchal.vercel.app/
 - > Markdown Previewer<br>https://markdown-previewer-by-dhyanesh-panchal.vercel.app/
